@@ -16,5 +16,10 @@ public class HelloController {
             return "Goodbye Spring boot";
         }
 
+        @GetMapping("/status")
+        public String status(){
+            return "Server is running";
+        }
+
 
 }
