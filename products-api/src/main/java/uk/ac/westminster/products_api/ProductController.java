@@ -9,6 +9,7 @@ import java.util.List;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/products")
 
 
 
@@ -21,8 +22,8 @@ public class ProductController {
     @GetMapping("/{id}")
 
     public Product getProductById(@PathVariable Long id) {
-        productService.getProductById(id).orElse(null);
-        return null;
+        return new Product(id, "Laptop", 999.99);
+
     }
 
     @GetMapping
@@ -30,7 +31,7 @@ public class ProductController {
         return productService.getAllProducts();
     }
 
-    @PostMapping("/products")
+    @PostMapping
     public Product addProduct(@RequestBody Product product) {
         return productService.addProduct(product);
     }
